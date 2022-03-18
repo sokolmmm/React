@@ -5,7 +5,7 @@ const ProfileInfo = (props) => {
   return (
     <div className={s.profileInfo}>
       <div>
-        <img src="https://inlnk.ru/go9Qeo"/>
+        <img className={s.profileInfoLogo} src="https://inlnk.ru/go9Qeo"/>
       </div>
       <div className={s.descriptionBlock}> Ava + description </div>
     </div>

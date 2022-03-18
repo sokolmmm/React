@@ -4,7 +4,7 @@ import  s from './Header.module.css';
 const Header = () => {
 return (
     <header className = {s.header}>
-      <img src='https://inlnk.ru/9P4vOY'></img>
+      <img src='https://themified.com/friend-finder/images/logo.png'></img>
     </header>    
 )}
 export default Header;

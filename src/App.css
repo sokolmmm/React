@@ -1,16 +1,17 @@
 .app-wrapper {
   margin: 0 auto;
-  display: grid;
-  width:  1200px;
-  grid-template-areas:
-  "h h"
-  "n c";
-  grid-template-rows: 60px 2fr;
-  grid-template-columns: 2fr 10fr;
-  height: 100%;
+  display: flex;
+  width: 1000px;
+  flex-direction: row;
+  align-items: stretch;
+  flex-wrap: wrap;
+  background-color: #fff;
+  height: calc(100vh - 70px);
 }
 
 .app-wrapper-content {
-  grid-area: c;
-  background-color: rgb(88, 100, 212);
+  width: calc(100% - 220px);
+  align-self: stretch;
+  height: calc(100vh - 70px);
+  overflow: hidden auto;
 }
