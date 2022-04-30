@@ -1,15 +1,20 @@
-import React from "react";
-import s from "./ProfileInfo.module.css";
+import React from 'react';
+import s from './ProfileInfo.module.css';
+import Preloader from '../../common/Preloader/Preloader';
 
 const ProfileInfo = (props) => {
-  return (
-    <div className={s.profileInfo}>
-      <div>
-        <img className={s.profileInfoLogo} src="https://inlnk.ru/go9Qeo"/>
+  if (!props.profile) {
+    return <Preloader />;
+  } else {
+    return (
+      <div className={s.profileInfo}>
+        <div>
+          <img className={s.profileInfoLogo} src={props.profile.photos.large} />
+        </div>
+        <div className={s.descriptionBlock}> Ava + description </div>
       </div>
-      <div className={s.descriptionBlock}> Ava + description </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default ProfileInfo;

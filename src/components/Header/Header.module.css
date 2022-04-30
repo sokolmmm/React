@@ -8,4 +8,9 @@
 .header img {
   padding-left: 20px;
   width: 150px;
-};
+}
+
+.loginBlock {
+  float: right;
+  color: aqua;
+}

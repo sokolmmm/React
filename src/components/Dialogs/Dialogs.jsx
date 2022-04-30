@@ -1,16 +1,14 @@
-import React from "react";
-import DialogItem from "./DialogItem/DialogItem";
-import Message from "./Message/Message";
-import s from "./Dialogs.module.css";
+import React from 'react';
+import DialogItem from './DialogItem/DialogItem';
+import Message from './Message/Message';
+import s from './Dialogs.module.css';
+import { Navigate } from 'react-router-dom';
+import Login from '../Login/Login';
 
 const Dialogs = (props) => {
   let state = props.dialogsPage;
-  let dialogsElements = state.dialogs.map((d) => (
-    <DialogItem id={d.id} name={d.name} />
-  ));
-  let messagesElements = state.messages.map((m) => (
-    <Message message={m.message} />
-  ));
+  let dialogsElements = state.dialogs.map((d) => <DialogItem id={d.id} name={d.name} />);
+  let messagesElements = state.messages.map((m) => <Message message={m.message} />);
 
   let newMessageBody = state.newMessageBody;
   let onNewMessageChange = (e) => {
@@ -22,17 +20,15 @@ const Dialogs = (props) => {
     props.onSendMessageClick();
   };
 
+  if(!props.isAuth) return <Navigate to='/login'/>;
+
   return (
     <div className={s.dialogs}>
       <div className={s.dialogsItems}>{dialogsElements}</div>
       <div className={s.messages}>
         <div>{messagesElements}</div>
         <div>
-          <textarea
-            placeholder="Enter your message"
-            value={newMessageBody}
-            onChange={onNewMessageChange}
-          />
+          <textarea placeholder="Enter your message" value={newMessageBody} onChange={onNewMessageChange} />
         </div>
         <div>
           <button onClick={onSendMessageClick}> Send </button>
