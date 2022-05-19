@@ -17,33 +17,33 @@ export const userAPI = {
   unfollow(userID) {
     return instance
       .delete(`follow/${userID}`)
-      .then((response) => response.data)
+      .then((response) => response.data);
   },
   follow(userID) {
-    return instance
-      .post(`follow/${userID}`)
-      .then ((response) => response.data)
+    return instance.post(`follow/${userID}`).then((response) => response.data);
   },
 };
 
 export const profileAPI = {
   getProfile(profileId) {
-    return instance
-      .get(`profile/${profileId}`)
+    return instance.get(`profile/${profileId}`);
   },
   getStatus(profileId) {
-    return instance
-    .get(`profile/status/${profileId}`)
+    return instance.get(`profile/status/${profileId}`);
   },
   updateStatus(status) {
-    return instance
-    .put(`profile/status`, {status: status})
+    return instance.put(`profile/status`, { status: status });
   },
 };
 
 export const authAPI = {
   authMe() {
-    return instance
-    .get(`auth/me`)
+    return instance.get(`auth/me`);
+  },
+  login(email, password, rememberMe=false) {
+    return instance.post(`auth/login`, { email, password, rememberMe });
+  },
+  logut() {
+    return instance.delete(`auth/login`);
   },
 };

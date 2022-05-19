@@ -4,6 +4,7 @@ import { Navigate } from "react-router-dom";
 
 const mapStateToPropsWithRedirect = (state) => ({
   isAuth: state.auth.isAuth,
+  id: state.auth.id,
 });
 
 export const withAuthRedirect = (Component) => {
@@ -17,3 +18,5 @@ export const withAuthRedirect = (Component) => {
 
   return connectedAuthRedirect;
 };
+
+

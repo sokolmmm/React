@@ -1,16 +1,82 @@
 .header {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  height: 100%;
   width: 100%;
-  height: 70px;
-  background-color:#231F20;
-  display: flex;
-  align-items: center;
+  background: #fff;
+  box-shadow: 0 0 1.25rem 0 rgb(0 0 0 / 10%);
+  display: grid;
+  grid-template-columns: 300px auto;
+  border-bottom: 1px solid #e5e7eb;
 }
-.header img {
+.headerNavbar {
+  height: 100%;
+  width: 100%;
+  background: #fff;
   padding-left: 20px;
-  width: 150px;
+  padding-right: 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto;
+  align-items: center;
+  border-right: 1px solid #e5e7eb;
+}
+.headerNavbarLogo {
+  height: 22px;
+  width: 110px;
+  justify-self: start;
+}
+.switchMode {
+  width: 35px;
+  height: 35px;
+  background-color: #f0f2f5;
+  border-radius: 50%;
+  justify-self: end;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+.switchMode i {
+  font-size: 22px;
+  color: #707070;
 }
 
-.loginBlock {
-  float: right;
-  color: aqua;
+.headerItems {
+  display: grid;
+  grid-template-columns: auto 75px 75px 75px;
+}
+
+.headerItems :nth-child(1) {
+  grid-column-start: 2;
+  grid-column-end: 3n;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerItems :nth-child(2) {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerItems :nth-child(3) {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerItems :nth-child(3) img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.headerItems i {
+  font-size: 22px;
+  color: #707070;
 }

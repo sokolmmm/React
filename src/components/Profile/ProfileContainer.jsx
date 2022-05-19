@@ -13,7 +13,7 @@ class ProfileContainer extends React.Component {
     this.props.getStatus(this.props.router.params.profileID);
   }
   render() {
-    return <Profile {...this.state} profile={this.props.profile} status={this.props.status} updateStatus={this.props.updateStatus} />;
+    return <Profile {...this.props} />;
   }
 }
 
@@ -35,5 +35,5 @@ function withRouter(Component) {
 export default compose(
   connect(mapStateToProps, { getUserProfile, getStatus, updateStatus}),
   withRouter,
-  // withAuthRedirect
+  withAuthRedirect
 )(ProfileContainer);

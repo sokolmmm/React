@@ -1,17 +1,97 @@
-.app-wrapper {
-  margin: 0 auto;
-  display: flex;
-  width: 1000px;
-  flex-direction: row;
-  align-items: stretch;
-  flex-wrap: wrap;
-  background-color: #fff;
-  height: calc(100vh - 70px);
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.app-wrapper-content {
-  width: calc(100% - 220px);
-  align-self: stretch;
-  height: calc(100vh - 70px);
-  overflow: hidden auto;
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+Наследуем шрифты для инпутов и кнопок input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  background-color: #f0f2f5;
+  width: 100vh;
+  height: 100vh;
+}
+
+html,
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+body {
+  overflow: auto; /* добавить полосу прокрутки */
+}
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: #e5e7eb;
+}
+
+#root {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.app-wrapper {
+  min-width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 300px auto;
+  grid-template-rows: 65px auto;
+}
+
+input[type="text"] {
+  font-family: inherit; /* 1 */
+  font-size: inherit; /* 1 */
+  line-height: inherit; /* 1 */
+  margin: 0; /* 2 */
 }

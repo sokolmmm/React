@@ -1,18 +1,78 @@
 .nav {
-  width: 180px;
-  padding: 20px;
-  background-color: rgb(238, 228, 228);
+  width: 100%;
+  box-shadow: 0 0 1.25rem 0 rgb(0 0 0 / 10%);
+  background: #fff;
+  border-right: 1px solid #e5e7eb;
+  
+}
+
+.userBlock {
+  width: 100%;
+  height: 250px;
+  border-bottom: 1px solid #e5e7eb;
+  display: grid;
+  grid-template-rows: 4fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.userBlock img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.userBlock h3 {
+  font-family: inter, sans-serif;
+  font-size: 25px;
+  color: #666666;
+}
+
+.linkBlock {
+  width: 100%;
+  height: 400px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .item {
-  padding: 15px 0px;
+  width: 100%;
+  height: 60px;
+  padding: 15px 30px 15px 30px;
 }
 .item a {
-  color: #6d6e71;
+  font-family: inter, sans-serif;
   font-size: 20px;
   text-decoration: none;
+  color: #707070;
+}
+
+.item span{
+  margin-left: 30px;
+}
+
+.item i {
+  color: #707070;
+  font-size: 20px;
+
 }
 
 .item a.active {
-  color: white;
+  color: #be185d;
+}
+.active i{
+  color: #be185d;
+}
+
+.logoutBlock {
+  width: 100%;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 20px;
+
+}
+
+.linkBlock {
+  width: 100%;
+  height: 400px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
