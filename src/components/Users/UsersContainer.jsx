@@ -1,68 +1,61 @@
-// eslint-disable-next-line no-unused-vars
 import React from "react";
 import { connect } from "react-redux";
 import {
-  followSuccess,
   setCurentPage,
-  unfollowSuccess,
-  toggleFollowingProgress,
-  getUsers,
+  requestUsers,
   unfollow,
   follow,
 } from "../../redux/users-reducer";
-import * as axios from "axios";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
-import { userAPI } from "../../api/api";
-import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
+import {
+  getCurentPage,
+  getFollowingInProgress,
+  getIsFetching,
+  getPageSize,
+  getTotalUsersCount,
+  getUsers,
+} from "../../redux/selectors/users-selector";
 
 class UsersComponent extends React.Component {
   componentDidMount() {
-    this.props.getUsers(this.props.curentPage, this.props.pageSize);
+    const { curentPage, pageSize } = this.props;
+    this.props.requestUsers(curentPage, pageSize);
   }
 
   onPageChanged = (pageNumber) => {
+    const {pageSize} = this.props;
     this.props.setCurentPage(pageNumber);
-    this.props.getUsers(pageNumber, this.props.pageSize);
+    this.props.requestUsers(pageNumber, pageSize);
   };
 
   render() {
     return (
-      <>
+      <div>
         {this.props.isFetching ? <Preloader /> : null}
-        <Users
-          users={this.props.users}
-          pageSize={this.props.pageSize}
-          curentPage={this.props.curentPage}
-          totalUsersCount={this.props.totalUsersCount}
-          onPageChanged={this.onPageChanged}
-          followingInProgress={this.props.followingInProgress}
-          follow={this.props.follow}
-          unfollow={this.props.unfollow}
-        />
-      </>
+        <Users onPageChanged={this.onPageChanged} {...this.props} />
+      </div>
     );
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    users: state.usersPage.users,
-    pageSize: state.usersPage.pageSize,
-    curentPage: state.usersPage.curentPage,
-    totalUsersCount: state.usersPage.totalUsersCount,
-    isFetching: state.usersPage.isFetching,
-    followingInProgress: state.usersPage.followingInProgress,
+    users: getUsers(state),
+    pageSize: getPageSize(state),
+    curentPage: getCurentPage(state),
+    totalUsersCount: getTotalUsersCount(state),
+    isFetching: getIsFetching(state),
+    followingInProgress: getFollowingInProgress(state),
   };
 };
 
 export default compose(
   connect(mapStateToProps, {
     setCurentPage,
-    getUsers,
+    requestUsers,
     follow,
     unfollow,
-  }),
-  withAuthRedirect
+  })
 )(UsersComponent);

@@ -3,7 +3,6 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import style from "./LoginForm.style.css";
 import TextError from "../../common/FormsControls/TextError";
-import { login } from "../../../redux/auth-reducer";
 
 const LoginForm = (props) => {
   const initialValues = {
@@ -19,9 +18,9 @@ const LoginForm = (props) => {
 
   const onSubmit = (values) => {
     const { email, password, rememberMe } = values;
-    props.loginOnSubmit(email,password,rememberMe);
-    debugger;
+    props.loginOnSubmit(email, password, rememberMe);    
   };
+
   return (
     <Formik
       initialValues={initialValues}
@@ -31,6 +30,7 @@ const LoginForm = (props) => {
       {(formik) => {
         return (
           <Form>
+            <div>{formik.status}</div>
             <div className="formControl">
               <label htmlFor="email">Email</label>
               <Field type="text" id="email" name="email" />
@@ -49,6 +49,9 @@ const LoginForm = (props) => {
             </div>
 
             <button type="submit"> Login </button>
+          
+
+            <div>{props.responceError ? props.responceError : null}</div>
           </Form>
         );
       }}

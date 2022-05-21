@@ -1,7 +1,4 @@
-.userPhoto {
-    width: 200px;
+.userContainer {
+height: 50%;
 }
 
-.selectedPage {
-    font-weight: bold;
-}

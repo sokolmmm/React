@@ -4,8 +4,7 @@ import LoginForm from "./LoginForm/LoginForm";
 
 const Login = (props) => {
   if(props.isAuth) {
-    let path = '/profile/';
-    return <Navigate to={path} />
+    return <Navigate to={`/profile/${props.id}`} />
   }
   return (
     <div>

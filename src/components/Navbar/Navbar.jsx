@@ -14,7 +14,7 @@ const Navbar = (props) => {
       <div className={style.linkBlock}>
         <div className={style.item}>
           <NavLink
-            to="/profile"
+            to={`/profile/${props.id}`}
             className={({ isActive }) => `${isActive ? style.active : ""}`}
           >
             <i class="fa-solid fa-user"></i>
